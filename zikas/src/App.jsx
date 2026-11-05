@@ -28,7 +28,7 @@ function App() {
               element={<ProductDetails />}></Route>
             <Route path="verify/payment" element={<VerifyPayment />}></Route>
             <Route path="/about" element={<AboutHero />}></Route>
-            <Route path="contact" element={<Contact />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
           </Route>
 
           
