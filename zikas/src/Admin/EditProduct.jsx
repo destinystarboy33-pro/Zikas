@@ -8,7 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const EditProduct = () => {
     
     const { id } = useParams();
-    const API_URL = `https://zikas.onrender.com/product/products/${id}`;
+    const API_URL = `https://zikas.onrender.com/product/${id}`;
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
