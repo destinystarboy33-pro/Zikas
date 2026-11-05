@@ -1,0 +1,48 @@
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./Home/Index";
+import Form from "./Pages/Form";
+// import ProductCards from './Home/ProductCards'
+import MainLayout from "./Layout/MainLayout";
+import ProductDetails from "./Pages/ProductDetails";
+import VerifyPayment from "./Pages/VerifyPayment";
+import AboutHero from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Register from "./Admin/Register";
+import AdminLayout from "./Layout/AdminLayout";
+import Dashboard from "./Admin/Dashboard";
+import CreateProduct from "./Admin/CreateProducts";
+
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Index />}></Route>
+
+            <Route path="form/:id" element={<Form />}></Route>
+            <Route
+              path="productdetails/:id"
+              element={<ProductDetails />}></Route>
+            <Route path="verify/payment" element={<VerifyPayment />}></Route>
+            <Route path="/about" element={<AboutHero />}></Route>
+            <Route path="contact" element={<Contact />}></Route>
+          </Route>
+
+          
+          
+          <Route path="/register" element={<Register />}></Route>
+
+          <Route element ={<AdminLayout />}>
+          <Route path="/dashboard" element= {<Dashboard />}></Route>
+          <Route path="/admin/createproduct" element= {<CreateProduct />}></Route>
+          
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
