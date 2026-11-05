@@ -39,7 +39,7 @@ const Register = () => {
 
     try {
 
-        const URL = "http://localhost:5000/auth/register"
+        const URL = "https://zikas.onrender.com/auth/register"
 
         const response = await axios.post(URL, formData)
 

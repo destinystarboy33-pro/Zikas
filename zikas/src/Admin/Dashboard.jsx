@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import AdminSidebar from "../Components/SideBar";
 
-const API_URL = "http://localhost:5000/product/products";
+const API_URL = "https://zikas.onrender.com/product/products";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);

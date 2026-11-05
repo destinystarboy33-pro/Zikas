@@ -15,7 +15,7 @@ const PORT = process.env.PORT
 const app = express()
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://fastbuy-frontend-neon.vercel.app"],
+    origin: ["http://localhost:5173", "https://zikas.vercel.app"],
   }),
 );
 app.use(express.json())

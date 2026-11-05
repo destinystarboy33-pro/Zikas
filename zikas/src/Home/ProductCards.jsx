@@ -11,7 +11,7 @@ useEffect(() =>{
 
 
    try {
-      const URL = "http://localhost:5000/product/products"
+      const URL = "https://zikas.onrender.com/product/products"
 
     const response = await axios.get(URL)
 

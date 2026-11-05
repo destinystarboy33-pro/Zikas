@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 // import AdminSidebar from "../../Components/AdminSidebar";
 
-const API_URL = "http://localhost:5000/product/create";
+const API_URL = "https://zikas.onrender.com/product/create";
 
 const CreateProduct = () => {
   const [loading, setLoading] = useState(false);

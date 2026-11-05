@@ -12,6 +12,7 @@ import Register from "./Admin/Register";
 import AdminLayout from "./Layout/AdminLayout";
 import Dashboard from "./Admin/Dashboard";
 import CreateProduct from "./Admin/CreateProducts";
+import Login from "./Admin/Login";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           
           
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element = {<Login />}></Route>
 
           <Route element ={<AdminLayout />}>
           <Route path="/dashboard" element= {<Dashboard />}></Route>
