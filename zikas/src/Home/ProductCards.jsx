@@ -32,7 +32,7 @@ useEffect(() =>{
    
   return (
 
-    <section  className="w-full py-16 md:py-20">
+    <section id="products"  className="w-full py-16 md:py-20">
 
    
     <div  className=" flex flex-col justify-center items-center mx-auto px-5">

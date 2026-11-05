@@ -415,6 +415,7 @@
 
 
 import { NavLink } from "react-router-dom";
+import {HashLink} from "react-router-hash-link"
 
 const Hero = () => {
   return (
@@ -448,12 +449,12 @@ const Hero = () => {
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 mt-9">
 
-              <NavLink
-                to="/shop"
+              <HashLink
+                to="/products"
                 className="bg-orange-500 text-white rounded-lg px-8 py-4 font-semibold hover:bg-black transition"
               >
                 Explore Collection
-              </NavLink>
+              </HashLink>
 
               <NavLink
                 to="/about"
