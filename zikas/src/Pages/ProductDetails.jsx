@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const getProducts = async() =>{
 
    try {
-      const URL = `http://localhost:5000/product/${id}`
+      const URL = `https://zikas.onrender.com/product/${id}`
 
     const response = await axios.get(URL)
 
