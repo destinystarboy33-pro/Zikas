@@ -19,7 +19,7 @@ const AdminSidebar = () => {
     },
     {
       name: "Edit Products",
-      path: "/admin/edit-products",
+      path: "/admin/editproduct",
       icon: "fa-solid fa-pen-to-square",
     },
     {

@@ -181,7 +181,7 @@ const Dashboard = () => {
 
                     <button
                       onClick={() =>
-                        window.location.href = `/admin/edit-product/${item._id}`
+                        window.location.href = `/admin/editproduct/${item._id}`
                       }
                       className="flex-1 rounded-lg bg-black py-3 text-sm font-semibold text-white transition hover:bg-orange-500"
                     >
