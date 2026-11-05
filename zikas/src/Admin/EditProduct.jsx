@@ -40,7 +40,7 @@ const EditProduct = () => {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          `${API_URL}/${id}`,
+          `${API_URL}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
