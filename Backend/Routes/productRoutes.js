@@ -8,7 +8,7 @@ const productRouter = Router()
 productRouter.get("/products", Getallproducts)
 productRouter.get("/filter", FilteredProduct)
 productRouter.post("/create", upload.single('image'), CreateProduct)
-productRouter.patch("/:id", upload.single('image'), UpdateProduct)
+productRouter.patch("/products:id", upload.single('image'), UpdateProduct)
 productRouter.delete("/products/:id", DeleteProduct)
 productRouter.get("/:id", GetProductById)
 
