@@ -65,6 +65,7 @@ const Login = async(req, res) =>{
       const {email, password} = req.body
 
     const existingAdmin = await Admin.findOne({email})
+    console.log(existingAdmin)
 
     if (!existingAdmin) {
         res.status(400).json({
@@ -82,7 +83,7 @@ const Login = async(req, res) =>{
         })
     }
 
-    const token = GenerateToken(admin)
+    const token = GenerateToken(existingAdmin)
 
     res.status(200).json({
         message: "Login Successful",
