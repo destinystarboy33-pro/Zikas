@@ -56,7 +56,7 @@ useEffect(() =>{
             <div className="p-6">
 
                 <p className=" text-xl md:text-2xl font-bold text-gray-900 line-clamp-1 uppercase items-start">{product.name}</p>
-                <p className=" text-base md:text-lg text-gray-700 line-clamp-3 items-start">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit nesciunt eveniet laboriosam aut obcaecati architecto animi, cupiditate optio earum! Consequuntur numquam, accusantium reprehenderit odio dignissimos quidem consectetur laboriosam enim! Doloribus?</p>
+                <p className=" text-base md:text-lg text-gray-700 line-clamp-3 items-start">{product.description}</p>
 
                 <div className="border-t border-gray-200 my-5"></div>
 
