@@ -35,7 +35,7 @@ const handlechange = (e) => {
 
 
    try {
-      const URL = `http://localhost:5000/product/${id}`
+      const URL = `https://zikas.onrender.com/product/${id}`
 
     const response = await axios.get(URL)
 
@@ -54,7 +54,7 @@ const handlechange = (e) => {
     const handleOrder = async(e) =>{
          e.preventDefault();
 try {
-  const pay = await axios.post(`http://localhost:5000/payment/initailize/${id}`,
+  const pay = await axios.post(`https://zikas.onrender.com/payment/initailize/${id}`,
      {
           productId: id,
           ...formData
