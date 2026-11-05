@@ -74,7 +74,7 @@ const EditProduct = () => {
 
     fetchProduct();
 
-  }, [id]);
+  }, [id, API_URL]);
 
 
   // HANDLE INPUT CHANGES
