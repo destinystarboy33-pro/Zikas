@@ -64,7 +64,7 @@ const Login = async(req, res) =>{
     
       const {email, password} = req.body
 
-    const admin = await Admin.findOne({email})
+    const existingAdmin = await Admin.findOne({email})
 
     if (!existingAdmin) {
         res.status(400).json({
