@@ -450,7 +450,7 @@ const Hero = () => {
             <div className="flex flex-wrap items-center gap-4 mt-9">
 
               <HashLink
-                to="/products"
+                to="/#products"
                 className="bg-orange-500 text-white rounded-lg px-8 py-4 font-semibold hover:bg-black transition"
               >
                 Explore Collection
