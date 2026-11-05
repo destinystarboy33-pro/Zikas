@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-// import AdminSidebar from "../../Components/AdminSidebar";
+
 
 const API_URL = "https://zikas.onrender.com/product/create";
 
