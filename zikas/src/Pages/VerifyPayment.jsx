@@ -13,7 +13,7 @@ const VerifyPayment = () => {
     useEffect(() =>{
           const confirmPayment = async() =>{
         try {
-          const payment = await  axios.get(`http://localhost:5000/payment/verify/${reference}`,
+          const payment = await  axios.get(`https://zikas.onrender.com/payment/verify/${reference}`,
            {
           headers: {
             "Content-Type": "application/json",
