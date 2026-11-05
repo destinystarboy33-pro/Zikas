@@ -40,7 +40,7 @@ function App() {
           <Route element ={<AdminLayout />}>
           <Route path="/dashboard" element= {<Dashboard />}></Route>
           <Route path="/admin/createproduct" element= {<CreateProduct />}></Route>
-          <Route path="/admin/editproduct" element= {<EditProduct />}></Route>
+          <Route path="/admin/editproduct/:id" element= {<EditProduct />}></Route>
           
           
           </Route>
