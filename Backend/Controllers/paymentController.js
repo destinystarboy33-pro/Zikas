@@ -91,7 +91,7 @@ const VerifyPayment = async(req, res) =>{
     console.log(req.params)
 
     const {reference} = req.params
-    const response = await axios.get(` https://api.paystack.co/transaction/verify/${reference}`,
+    const response = await axios.get(` https://api.paystack.co/transaction/verify/${reference}/${product._id}`,
       {
         headers: { Authorization: ` Bearer ${process.env.PAYSTACK_SECRET_KEY}`}
       }
