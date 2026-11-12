@@ -104,7 +104,13 @@ const VerifyPayment = async(req, res) =>{
         await payment.findOneAndUpdate({reference},{status: "success"})
 
         const paymentdetails = await payment.findOne({reference}).populate("productId")
+    
 
+        if (!paymentdetails) {
+          res.status(StatusCodes.BAD_REQUEST).json({
+            message: "product not found"
+          })
+        }
         
        
            res.status(StatusCodes.OK).json({
@@ -141,7 +147,7 @@ const VerifyPayment = async(req, res) =>{
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       message: "opps! something went wrong",
       status: false,
-      error: message.error
+      error: error.message
     })
   }
 }
