@@ -91,6 +91,7 @@ const VerifyPayment = () => {
 
            console.log(payment)
            console.log(payment.data.data.status)
+           console.log(payment.data.data.productName)
              setamount(payment.data.data.amount)
             setname(payment.data.data.productName)
           setStatus(payment.data.data.status)
