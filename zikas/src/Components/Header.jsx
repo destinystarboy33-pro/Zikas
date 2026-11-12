@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Shop", path: "/shop" },
+    { name: "New Arrival", path: "/newarrival" },
     { name: "Collections", path: "/collections" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -53,10 +53,10 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               to="/shop"
-              className="bg-black text-white px-7 py-3 text-sm font-bold hover:bg-orange-500 transition duration-300"
+              className="bg-black text-white px-7 py-3 text-sm font-bold hover:bg-orange-500 transition duration-300 rounded-2xl"
             >
               SHOP NOW
-              <i className="fa-solid fa-arrow-right ml-3" />
+              <i className="fa-solid fa-arrow-right ml-3 " />
             </Link>
           </div>
 
@@ -110,7 +110,7 @@ const Navbar = () => {
             ))}
 
             <Link
-              to="/shop"
+              to="/newarrival"
               onClick={() => setMenuOpen(false)}
               className="bg-orange-500 text-white text-center py-4 mt-6 font-bold text-sm hover:bg-black transition"
             >

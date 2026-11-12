@@ -35,7 +35,7 @@ try {
         email: email,
         amount: productId.amount * 100,
         reference,
-        callback_url: `https://zikas.onrender.com/verify/payment`,
+        callback_url: `https://zikas.vercel.app/verify/payment`,
       },
 
       {

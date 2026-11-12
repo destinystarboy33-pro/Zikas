@@ -14,11 +14,14 @@ import Dashboard from "./Admin/Dashboard";
 import CreateProduct from "./Admin/CreateProducts";
 import Login from "./Admin/Login";
 import EditProduct from "./Admin/EditProduct";
+import ScrollToTop from "./Components/ScrollToTop";
+import Collections from "./Pages/Collections";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Index />}></Route>
@@ -27,9 +30,10 @@ function App() {
             <Route
               path="productdetails/:id"
               element={<ProductDetails />}></Route>
-            <Route path="/verify/payment:reference" element={<VerifyPayment />}></Route>
+            <Route path="/verify/payment" element={<VerifyPayment />}></Route>
             <Route path="/about" element={<AboutHero />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/collections" element= {<Collections />}></Route>
           </Route>
 
           
