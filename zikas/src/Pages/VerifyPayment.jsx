@@ -202,7 +202,7 @@ const VerifyPayment = () => {
 
                     <div>
                       <h3 className="font-bold text-lg">
-                        Classic Zikas T-Shirt
+                        {/* Classic Zikas T-Shirt */}
                         {name}
                       </h3>
 
