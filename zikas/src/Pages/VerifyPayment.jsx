@@ -1,5 +1,5 @@
  import axios from "axios"
- import { useSearchParams,  NavLink } from "react-router-dom"
+ import { useSearchParams, useParams  NavLink } from "react-router-dom"
  import { useEffect, useState } from "react"
 
 // const VerifyPayment = () => {
@@ -70,9 +70,10 @@ const VerifyPayment = () => {
     //  const [products, setproducts] = useState([])
 
      const reference = searchParams.get("reference")
-    //  const id = useParams()
+     const id = useParams()
      
      console.log(reference)
+     console.log(id)
      
 
      useEffect(() =>{
@@ -127,6 +128,8 @@ const VerifyPayment = () => {
       {status === "loading" &&( <div>
        <button className="animate-spin"></button>
         Loading...</div>) }
+
+        {status === "success" && (<div>
 
       <div className="max-w-5xl mx-auto">
 
@@ -330,6 +333,7 @@ const VerifyPayment = () => {
         </div>
 
       </div>
+      </div>)}
 
     </main>
   );
