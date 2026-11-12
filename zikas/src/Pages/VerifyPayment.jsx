@@ -67,10 +67,10 @@ const VerifyPayment = () => {
 
    const [searchParams] = useSearchParams()
      const [status, setStatus] = useState("loading")
-     const [products, setproducts] = useState([])
+    //  const [products, setproducts] = useState([])
 
      const reference = searchParams.get("reference")
-     const id = useParams()
+    //  const id = useParams()
      
      console.log(reference)
      
@@ -97,26 +97,26 @@ const VerifyPayment = () => {
 
      confirmPayment()
 
-      const getProducts = async() =>{
+  //     const getProducts = async() =>{
 
-   try {
-      const URL = `https://zikas.onrender.com/product/${id}`
+  //  try {
+  //     const URL = `https://zikas.onrender.com/product/${id}`
 
-    const response = await axios.get(URL)
+  //   const response = await axios.get(URL)
 
-    console.log(response)
-    console.log(Array.isArray(response.data))
-    console.log(response.data.Products.name)
+  //   console.log(response)
+  //   console.log(Array.isArray(response.data))
+  //   console.log(response.data.Products.name)
    
-    setproducts(response.data.Products)
-   } catch (error) {
-    console.log("error", error)
-   }
-  }
+  //   setproducts(response.data.Products)
+  //  } catch (error) {
+  //   console.log("error", error)
+  //  }
+  // }
 
-  getProducts()
+  // getProducts()
 
-    },[reference, id])
+    },[reference])
 
     
     
