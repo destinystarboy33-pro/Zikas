@@ -1,5 +1,5 @@
  import axios from "axios"
- import { useSearchParams, NavLink } from "react-router-dom"
+ import { useSearchParams, useParams, NavLink } from "react-router-dom"
  import { useEffect, useState } from "react"
 
 // const VerifyPayment = () => {
@@ -70,7 +70,7 @@ const VerifyPayment = () => {
      const [products, setproducts] = useState([])
 
      const reference = searchParams.get("reference")
-     const id = searchParams.get("id")
+     const id = useParams()
      
      console.log(reference)
      
