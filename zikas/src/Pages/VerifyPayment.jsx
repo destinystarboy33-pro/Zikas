@@ -67,7 +67,8 @@ const VerifyPayment = () => {
 
    const [searchParams] = useSearchParams()
      const [status, setStatus] = useState("loading")
-    //  const [products, setproducts] = useState([])
+     const [amount, setamount] = useState("")
+     const [name, setname] = useState("")
 
      const reference = searchParams.get("reference")
      const id = useParams()
@@ -90,7 +91,8 @@ const VerifyPayment = () => {
 
            console.log(payment)
            console.log(payment.data.data.status)
-            console.log(payment.data.data.amount)
+             setamount(payment.data.data.amount)
+            setname(payment.data.data.productName)
           setStatus(payment.data.data.status)
          } catch (error) {
              console.log(error.response.data || "Something went wrong")
@@ -201,7 +203,7 @@ const VerifyPayment = () => {
                     <div>
                       <h3 className="font-bold text-lg">
                         Classic Zikas T-Shirt
-                        {/* {products.name} */}
+                        {name}
                       </h3>
 
                      
@@ -211,8 +213,8 @@ const VerifyPayment = () => {
                       </p>
 
                       <p className="font-black text-xl mt-3">
-                        ₦25,000
-                        {/* {products.amount} */}
+                        {/* ₦25,000 */}
+                        {amount}
                       </p>
                     </div>
 
