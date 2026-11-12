@@ -72,14 +72,14 @@ const VerifyPayment = () => {
      const reference = searchParams.get("reference")
      const id = useParams()
      
-     console.log(reference)
+    //  console.log(reference)
      console.log(id)
      
 
      useEffect(() =>{
            const confirmPayment = async() =>{
          try {
-           const payment = await  axios.get(`https://zikas.onrender.com/payment/verify/${reference}`,
+           const payment = await  axios.get(`https://zikas.onrender.com/payment/verify/${reference}/${id}`,
             {
            headers: {
              "Content-Type": "application/json",
