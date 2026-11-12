@@ -1,5 +1,5 @@
  import axios from "axios"
- import { useSearchParams, useParams, NavLink } from "react-router-dom"
+ import { useSearchParams,  NavLink } from "react-router-dom"
  import { useEffect, useState } from "react"
 
 // const VerifyPayment = () => {
@@ -196,8 +196,8 @@ const VerifyPayment = () => {
 
                     <div>
                       <h3 className="font-bold text-lg">
-                        {/* Classic Zikas T-Shirt */}
-                        {products.name}
+                        Classic Zikas T-Shirt
+                        {/* {products.name} */}
                       </h3>
 
                      
@@ -207,8 +207,8 @@ const VerifyPayment = () => {
                       </p>
 
                       <p className="font-black text-xl mt-3">
-                        {/* ₦25,000 */}
-                        {products.amount}
+                        ₦25,000
+                        {/* {products.amount} */}
                       </p>
                     </div>
 
