@@ -1,5 +1,5 @@
  import axios from "axios"
- import { useSearchParams, useParams  NavLink } from "react-router-dom"
+ import { useSearchParams, useParams,  NavLink } from "react-router-dom"
  import { useEffect, useState } from "react"
 
 // const VerifyPayment = () => {
