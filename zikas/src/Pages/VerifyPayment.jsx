@@ -72,7 +72,7 @@ const VerifyPayment = () => {
      const reference = searchParams.get("reference")
      const id = useParams()
      
-    //  console.log(reference)
+     console.log(reference)
      console.log(id)
      
 
