@@ -61,25 +61,19 @@
 
 // export default VerifyPayment
 
-
-
-
-
-
-
-
-import { Link } from "react-router-dom";
-
 const VerifyPayment = () => {
 
 
 
    const [searchParams] = useSearchParams()
      const [status, setStatus] = useState("loading")
+     const [products, setproducts] = useState([])
 
      const reference = searchParams.get("reference")
+     const id = searchParams.get("id")
      
      console.log(reference)
+     
 
      useEffect(() =>{
            const confirmPayment = async() =>{
@@ -103,7 +97,29 @@ const VerifyPayment = () => {
 
      confirmPayment()
 
-    },[reference])
+      const getProducts = async() =>{
+
+   try {
+      const URL = `https://zikas.onrender.com/product/${id}`
+
+    const response = await axios.get(URL)
+
+    console.log(response)
+    console.log(Array.isArray(response.data))
+    console.log(response.data.Products.name)
+   
+    setproducts(response.data.Products)
+   } catch (error) {
+    console.log("error", error)
+   }
+  }
+
+  getProducts()
+
+    },[reference, id])
+
+    
+    
 
   return (
     <main className="min-h-screen bg-[#f8f8f8] px-4 py-10 md:py-16">
@@ -180,19 +196,19 @@ const VerifyPayment = () => {
 
                     <div>
                       <h3 className="font-bold text-lg">
-                        Classic Zikas T-Shirt
+                        {/* Classic Zikas T-Shirt */}
+                        {products.name}
                       </h3>
 
-                      <p className="text-gray-500 mt-2 text-sm">
-                        Size: L
-                      </p>
+                     
 
                       <p className="text-gray-500 mt-1 text-sm">
                         Quantity: 1
                       </p>
 
                       <p className="font-black text-xl mt-3">
-                        ₦25,000
+                        {/* ₦25,000 */}
+                        {products.amount}
                       </p>
                     </div>
 
@@ -251,21 +267,21 @@ const VerifyPayment = () => {
             {/* ACTION BUTTONS */}
             <div className="flex flex-col items-center gap-5 mt-8">
 
-              <Link
-                to="/shop"
+              <NavLink
+                to="/collections"
                 className="w-full md:w-80 bg-orange-500 hover:bg-orange-600 text-white text-center py-4 rounded-xl font-bold transition"
               >
                 <i className="fa-solid fa-cart-shopping mr-2" />
                 Continue Shopping
-              </Link>
+              </NavLink>
 
-              <Link
+              <NavLink
                 to="/"
                 className="font-semibold text-gray-700 hover:text-orange-500 transition"
               >
                 <i className="fa-solid fa-arrow-left mr-2" />
                 Back to Home
-              </Link>
+              </NavLink>
 
             </div>
 
