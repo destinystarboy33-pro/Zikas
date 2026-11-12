@@ -103,6 +103,8 @@ const VerifyPayment = async(req, res) =>{
         
         await payment.findOneAndUpdate({reference},{status: "success"})
 
+        const paymentdetails = payment.findOne({reference}).populate("product")
+
         
        
            res.status(StatusCodes.OK).json({
@@ -111,8 +113,8 @@ const VerifyPayment = async(req, res) =>{
              data: {
               reference:response.data.data.reference,
               status: response.data.data.status,
-             productName: response.data.data.productName,
-             amount: response.data.data.amount
+             productName: paymentdetails.data.data.productName,
+             amount: paymentdetails.data.data.amount
               
            }
            })
