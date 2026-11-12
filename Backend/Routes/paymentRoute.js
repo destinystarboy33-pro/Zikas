@@ -4,6 +4,6 @@ import { InitailizePayment, VerifyPayment } from "../Controllers/paymentControll
 const paymentRoute = Router()
 
 paymentRoute.post("/initailize/:id", InitailizePayment)
-paymentRoute.get("/verify/:reference/:id", VerifyPayment)
+paymentRoute.get("/verify/:reference", VerifyPayment)
 
 export default paymentRoute 

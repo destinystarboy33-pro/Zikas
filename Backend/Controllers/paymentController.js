@@ -88,11 +88,11 @@ console.log(response.data)
 
 const VerifyPayment = async(req, res) =>{
   try{
-     const productId = await product.findById(id)
+
     console.log(req.params)
 
     const {reference} = req.params
-    const response = await axios.get(` https://api.paystack.co/transaction/verify/${reference}/${productId._id}`,
+    const response = await axios.get(` https://api.paystack.co/transaction/verify/${reference}`,
       {
         headers: { Authorization: ` Bearer ${process.env.PAYSTACK_SECRET_KEY}`}
       }
@@ -102,13 +102,18 @@ const VerifyPayment = async(req, res) =>{
       if (response.data.data.status === "success") {
         
         await payment.findOneAndUpdate({reference},{status: "success"})
+
+        
        
            res.status(StatusCodes.OK).json({
              message: response.data.data.message,
              status: true,
              data: {
               reference:response.data.data.reference,
-              status: response.data.data.status
+              status: response.data.data.status,
+             productName: response.data.data.productName,
+             amount: response.data.data.amount
+              
            }
            })
       } else if(response.data.data.status === "failed"){

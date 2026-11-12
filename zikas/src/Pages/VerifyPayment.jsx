@@ -90,6 +90,7 @@ const VerifyPayment = () => {
 
            console.log(payment)
            console.log(payment.data.data.status)
+            console.log(payment.data.data.amount)
           setStatus(payment.data.data.status)
          } catch (error) {
              console.log(error.response.data || "Something went wrong")
@@ -117,7 +118,7 @@ const VerifyPayment = () => {
 
   // getProducts()
 
-    },[reference])
+    },[reference, id])
 
     
     
