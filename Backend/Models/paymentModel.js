@@ -13,7 +13,7 @@ phonenumber:{
 
  productId:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Product",
+    ref: "Products",
       required: true
     },
 
