@@ -92,7 +92,7 @@ const VerifyPayment = () => {
 
            console.log(payment)
            console.log(payment.data.data)
-           console.log(payment.data.data.productName)
+          console.log(image)
              setamount(payment.data.data.amount)
             setname(payment.data.data.productName)
             setimage(payment.data.data.image)
