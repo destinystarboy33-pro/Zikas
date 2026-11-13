@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useState, useEffect} from "react"
+import Loader from "../Components/Loader"
 
 const Form = () => {
 
@@ -13,6 +14,7 @@ const [formData, setFormData] = useState({
 })
 
 const [products, setproducts] = useState([])
+const [loading, setLoading] = useState(false)
 
 
 
@@ -53,6 +55,7 @@ const handlechange = (e) => {
 
     const handleOrder = async(e) =>{
          e.preventDefault();
+         setLoading(true)
 try {
   const pay = await axios.post(`https://zikas.onrender.com/payment/initailize/${id}`,
      {
@@ -129,7 +132,7 @@ try {
 
         </div>
 
-        <button  onSubmit={() => handleOrder(products._id)}  className="mt-2 w-full rounded-lg bg-orange-500 py-3 font-semibold text-white hover:bg-orange-600">Order Now</button>
+        <button  onSubmit={() => handleOrder(products._id)} disabled ={loading}  className={`mt-2 w-full rounded-lg  py-3 font-semibold text-white hover:bg-orange-600 ${loading? "bg-orange-800 ": "bg-orange-500"}`}>{loading? <Loader/>: "Order Now"}</button>
       </form>
       </div>
     </div>
