@@ -45,6 +45,7 @@ const handlechange = (e) => {
     console.log(response.data.Products.amount)
    
     setproducts(response)
+    setLoading(false)
    } catch (error) {
     console.log("error", error)
    }
@@ -132,7 +133,7 @@ try {
 
         </div>
 
-        <button  onSubmit={() => handleOrder(products._id)} disabled ={loading}  className={`mt-2 w-full rounded-lg  py-3 font-semibold text-white hover:bg-orange-600 ${loading? "bg-orange-800 ": "bg-orange-500"}`}>{loading? <Loader/>: "Order Now"}</button>
+        <button  onSubmit={() => handleOrder(products._id)} disabled ={loading}  className={`mt-2 w-full rounded-lg  py-3 font-semibold flex items-center justify-center text-white hover:bg-orange-600 ${loading ? "bg-orange-800 ": "bg-orange-500"}`}>{loading?<Loader/>  : "Order Now"}</button>
       </form>
       </div>
     </div>
