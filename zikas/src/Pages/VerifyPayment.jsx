@@ -92,11 +92,11 @@ const VerifyPayment = () => {
 
            console.log(payment)
            console.log(payment.data.data)
-          console.log(image)
-             setamount(payment.data.data.amount)
-            setname(payment.data.data.productName)
-            setimage(payment.data.data.image)
-          setStatus(payment.data.data.status)
+           setamount(payment.data.data.amount)
+           setname(payment.data.data.productName)
+           setimage(payment.data.data.image)
+           setStatus(payment.data.data.status)
+           console.log(image)
          } catch (error) {
              console.log(error.response.data || "Something went wrong")
          }
