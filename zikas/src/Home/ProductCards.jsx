@@ -3,9 +3,11 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import axios from "axios"
 import Reveal from "../Components/Reveal"
+import Loader from "../Components/Loader"
 
 const ProductCards = () => {
   const [products, setproducts] = useState([])
+  const [loading, setLoading] = useState(false)
 useEffect(() =>{
 
   const getProducts = async() =>{
@@ -13,6 +15,7 @@ useEffect(() =>{
 
    try {
       const URL = "https://zikas.onrender.com/product/products"
+      setLoading(true)
 
     const response = await axios.get(URL)
 
@@ -23,14 +26,20 @@ useEffect(() =>{
    } catch (error) {
     console.log("error", error)
    
-   }
+   } finally {
+
+        setLoading(false);
+
+      }
   }
 
   getProducts()
 },[])
 
 
-   
+   if (loading) {
+    return <Loader />;
+  }
   return (
     <><Reveal>
 

@@ -33,7 +33,7 @@ const PromoBanner = () => {
             </p>
 
             <Link
-              to="/shop"
+              to="/collections"
               className="inline-block mt-8 bg-black text-white rounded-lg px-8 py-4 font-semibold hover:bg-white hover:text-black transition duration-300"
             >
               Explore Collection
