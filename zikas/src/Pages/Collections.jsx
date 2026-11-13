@@ -3,9 +3,11 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import axios from "axios"
 import Reveal from "../Components/Reveal"
+import Loader from "../Components/Loader"
 
 const Collections = () => {
   const [products, setproducts] = useState([])
+  const [loading, setLoading] = useState(false)
 useEffect(() =>{
 
   const getProducts = async() =>{
@@ -23,13 +25,20 @@ useEffect(() =>{
    } catch (error) {
     console.log("error", error)
    
-   }
+   } finally {
+
+        setLoading(false);
+
+      }
   }
 
   getProducts()
 },[])
 
 
+   if (loading) {
+    return <Loader />;
+  }
    
   return (
 
