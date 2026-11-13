@@ -69,12 +69,13 @@ const VerifyPayment = () => {
      const [status, setStatus] = useState("loading")
      const [amount, setamount] = useState("")
      const [name, setname] = useState("")
+     const [image, setimage] = useState("")
 
      const reference = searchParams.get("reference")
      const id = useParams()
      
      console.log(reference)
-     console.log(id)
+     
      
 
      useEffect(() =>{
@@ -94,6 +95,7 @@ const VerifyPayment = () => {
            console.log(payment.data.data.productName)
              setamount(payment.data.data.amount)
             setname(payment.data.data.productName)
+            setimage(payment.data.data.image)
           setStatus(payment.data.data.status)
          } catch (error) {
              console.log(error.response.data || "Something went wrong")
@@ -196,8 +198,9 @@ const VerifyPayment = () => {
                   <div className="flex gap-5 items-center">
 
                     <img
-                      src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
-                      alt="Classic T-shirt"
+                      // src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+                      src={image}
+                      alt={name}
                       className="w-28 h-32 object-cover rounded-lg bg-gray-100"
                     />
 
@@ -240,11 +243,11 @@ const VerifyPayment = () => {
                       </p>
 
                       <p className="font-semibold text-sm break-all">
-                        ZKS-20261112-001
+                       {reference}
                       </p>
                     </div>
 
-                    <div className="mb-5">
+                    {/* <div className="mb-5">
                       <p className="text-gray-500 text-sm mb-1">
                         Order Date
                       </p>
@@ -252,7 +255,7 @@ const VerifyPayment = () => {
                       <p className="font-semibold text-sm">
                         November 12, 2026
                       </p>
-                    </div>
+                    </div> */}
 
                     <div className="bg-orange-50 rounded-lg p-4 flex justify-between items-center">
                       <span className="font-bold">
@@ -260,7 +263,7 @@ const VerifyPayment = () => {
                       </span>
 
                       <span className="text-orange-600 text-xl md:text-2xl font-black">
-                        ₦25,000
+                       {amount}
                       </span>
                     </div>
 
