@@ -38,8 +38,8 @@ const About = () => {
             </p>
 
             <Link
-              to="/shop"
-              className="border border-white text-white px-8 py-4 w-fit hover:bg-orange-500 hover:border-orange-500 transition"
+              to="/collections"
+              className="border border-white rounded-2xl text-white px-8 py-4 w-fit hover:bg-orange-500 hover:border-orange-500 transition"
             >
               Explore Collection
               <i className="fa-solid fa-arrow-up-right-from-square ml-3" />
@@ -62,10 +62,10 @@ const About = () => {
             <img
               src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=85"
               alt="Fashion collection"
-              className="w-full h-[450px] md:h-[600px] object-cover"
+              className="w-full h-[450px] md:h-[600px] object-cover rounded-lg"
             />
 
-            <div className="absolute -bottom-6 -right-5 bg-orange-500 p-7 hidden md:block">
+            <div className="absolute -bottom-6 -right-5 bg-orange-500 p-7 hidden md:block rounded-lg">
               <h3 className="text-5xl font-black text-black">Z.</h3>
               <p className="text-xs uppercase tracking-widest text-black">
                 Define Your Style
@@ -195,13 +195,13 @@ const About = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden"
+                className="group relative overflow-hidden "
               >
 
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700"
+                  className="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700 rounded-lg"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -245,8 +245,8 @@ const About = () => {
           </h2>
 
           <Link
-            to="/shop"
-            className="inline-block mt-10 bg-black text-white px-10 py-5 font-bold hover:bg-white hover:text-black transition"
+            to="/collections"
+            className="inline-block mt-10 rounded-2xl bg-black text-white px-10 py-5 font-bold hover:bg-white hover:text-black transition"
           >
             SHOP THE COLLECTION
             <i className="fa-solid fa-arrow-right ml-3" />

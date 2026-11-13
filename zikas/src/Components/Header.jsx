@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "New Arrival", path: "/newarrival" },
+    // { name: "New Arrival", path: "/newarrival" },
     { name: "Collections", path: "/collections" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -52,7 +52,7 @@ const Navbar = () => {
           {/* DESKTOP SHOP BUTTON */}
           <div className="hidden lg:block">
             <Link
-              to="/shop"
+              to="/collections"
               className="bg-black text-white px-7 py-3 text-sm font-bold hover:bg-orange-500 transition duration-300 rounded-2xl"
             >
               SHOP NOW
@@ -110,7 +110,7 @@ const Navbar = () => {
             ))}
 
             <Link
-              to="/newarrival"
+              to="/collections"
               onClick={() => setMenuOpen(false)}
               className="bg-orange-500 text-white text-center py-4 mt-6 font-bold text-sm hover:bg-black transition"
             >

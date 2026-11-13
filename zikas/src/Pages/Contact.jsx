@@ -212,7 +212,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Enter your full name"
                   required
-                  className="w-full bg-white border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition"
+                  className="w-full bg-white rounded-lg border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -229,7 +229,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Enter your email address"
                   required
-                  className="w-full bg-white border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition"
+                  className="w-full bg-white rounded-lg border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -246,7 +246,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What is your message about?"
                   required
-                  className="w-full bg-white border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition"
+                  className="w-full bg-white rounded-lg border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -263,13 +263,13 @@ const Contact = () => {
                   placeholder="Write your message here..."
                   rows="5"
                   required
-                  className="w-full bg-white border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition resize-none"
+                  className="w-full bg-white rounded-lg border border-gray-200 px-5 py-4 outline-none focus:border-orange-500 transition resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-black text-white py-5 font-bold hover:bg-orange-500 transition duration-300"
+                className="w-full bg-black rounded-lg text-white py-5 font-bold hover:bg-orange-500 transition duration-300"
               >
                 SEND MESSAGE
                 <i className="fa-solid fa-arrow-right ml-3" />

@@ -58,7 +58,7 @@ const WhyZikas = () => {
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="border border-gray-200 p-8 hover:bg-black hover:text-white transition duration-300 group"
+              className="border border-gray-200 rounded-2xl p-8 hover:bg-black hover:text-white transition duration-300 group"
             >
 
               <div className="w-14 h-14 bg-orange-500 flex items-center justify-center mb-7">
