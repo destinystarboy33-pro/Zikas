@@ -133,7 +133,7 @@ const VerifyPayment = () => {
     <main className="min-h-screen bg-[#f8f8f8] px-4 py-10 md:py-16">
 
       {status === "loading" &&( <div>
-       <button className="flex justify-center items-center"></button>
+       <button className="flex justify-center items-center text-center font-bold text-3xl"></button>
         Loading...</div>) }
 
         {status === "success" && (<div>
