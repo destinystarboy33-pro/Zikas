@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import axios from "axios"
+import Reveal from "../Components/Reveal"
 
 const Collections = () => {
   const [products, setproducts] = useState([])
@@ -33,6 +34,8 @@ useEffect(() =>{
   return (
 
     <section id="products"  className="w-full py-16 md:py-20">
+      <Reveal>
+
 
    
     <div  className=" flex flex-col justify-center items-center mx-auto px-5">
@@ -82,6 +85,7 @@ useEffect(() =>{
      
     </div>
 
+        </Reveal>
      </section>
   )
 }

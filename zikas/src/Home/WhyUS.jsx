@@ -1,4 +1,4 @@
-
+import Reveal from "../Components/Reveal";
 const WhyZikas = () => {
   const reasons = [
     {
@@ -29,6 +29,8 @@ const WhyZikas = () => {
 
   return (
     <section className="bg-white py-20 px-6 md:px-10">
+      <Reveal>
+
 
       <div className="max-w-7xl mx-auto">
 
@@ -81,6 +83,7 @@ const WhyZikas = () => {
         </div>
 
       </div>
+      </Reveal>
 
     </section>
   );

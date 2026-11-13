@@ -1,11 +1,13 @@
 
 import { Link } from "react-router-dom";
+import Reveal from "../Components/Reveal";
 
 const About = () => {
   return (
     <main className="bg-white">
 
-      {/* HERO SECTION */}
+    <Reveal>
+
       <section className="relative min-h-[650px] flex items-end bg-black">
 
         <img
@@ -46,9 +48,11 @@ const About = () => {
           </div>
         </div>
       </section>
+    </Reveal>
 
 
-      {/* BRAND STORY */}
+      <Reveal>
+
       <section className="py-24 px-6 md:px-12">
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -141,9 +145,12 @@ const About = () => {
           </div>
         </div>
       </section>
+      </Reveal>
 
 
       {/* VISUAL IDENTITY */}
+      <Reveal>
+
       <section className="bg-white py-24 px-6 md:px-12">
 
         <div className="max-w-7xl mx-auto">
@@ -248,6 +255,7 @@ const About = () => {
         </div>
       </section>
 
+                  </Reveal>
     </main>
   );
 };

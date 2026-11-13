@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import axios from "axios"
+import Reveal from "../Components/Reveal"
 
 const ProductCards = () => {
   const [products, setproducts] = useState([])
@@ -31,6 +32,7 @@ useEffect(() =>{
 
    
   return (
+    <><Reveal>
 
     <section id="products"  className="w-full py-16 md:py-20">
 
@@ -40,7 +42,7 @@ useEffect(() =>{
 
          <div className="max-w-7xl mx-auto px-5 md:px-8 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
 
-      {products.slice(0,2).map((product) =>(
+      {products.slice(0,9).map((product) =>(
 
         <div key={product._id}   className=" group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
 
@@ -83,6 +85,8 @@ useEffect(() =>{
     </div>
 
      </section>
+      </Reveal>
+      </>
   )
 }
 

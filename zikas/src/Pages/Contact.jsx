@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import Reveal from "../Components/Reveal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,6 +32,8 @@ const Contact = () => {
 
   return (
     <main className="bg-white">
+      <Reveal>
+
 
       {/* HERO SECTION */}
       <section className="bg-black text-white px-6 md:px-12 py-24">
@@ -62,9 +65,11 @@ const Contact = () => {
 
         </div>
       </section>
+      </Reveal>
 
 
       {/* CONTACT CONTENT */}
+      <Reveal>
       <section className="py-24 px-6 md:px-12">
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
@@ -104,7 +109,7 @@ const Contact = () => {
                   <a
                     href="mailto:hello@zikas.com"
                     className="text-black font-semibold hover:text-orange-500 transition"
-                  >
+                    >
                     hello@zikas.com
                   </a>
                 </div>
@@ -276,9 +281,12 @@ const Contact = () => {
 
         </div>
       </section>
+                </Reveal>
 
 
       {/* BOTTOM BRAND SECTION */}
+      <Reveal>
+
       <section className="bg-orange-500 py-20 px-6 text-center">
 
         <div className="max-w-4xl mx-auto">
@@ -302,6 +310,7 @@ const Contact = () => {
 
       </section>
 
+      </Reveal>
     </main>
   );
 };

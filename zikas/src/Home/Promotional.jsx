@@ -1,9 +1,12 @@
 
 import { Link } from "react-router-dom";
+import Reveal from "../Components/Reveal";
 
 const PromoBanner = () => {
   return (
     <section className="px-6 md:px-10 py-16">
+      <Reveal>
+
       <div className="max-w-7xl mx-auto bg-white relative overflow-hidden">
 
         <div className="grid md:grid-cols-2 items-center">
@@ -54,6 +57,7 @@ const PromoBanner = () => {
 
         </div>
       </div>
+      </Reveal>
     </section>
   );
 };
