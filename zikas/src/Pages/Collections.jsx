@@ -74,7 +74,7 @@ useEffect(() =>{
 
                 <div className=" flex items-center justify-between gap-4">
 
-                    <p className=" text-xl md:text-2xl font-extrabold text-gray-900"> ₦{product.amount}</p>
+                    <p className=" text-xl md:text-2xl font-extrabold text-gray-900"> ₦{product.amount.toLocaleString()}</p>
 
                     <NavLink to={`/productdetails/${product._id}`}>
                         <button  className=" bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg transition duration-300">View Product</button>

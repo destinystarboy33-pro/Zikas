@@ -133,7 +133,7 @@ const VerifyPayment = () => {
     <main className="min-h-screen bg-[#f8f8f8] px-4 py-10 md:py-16">
 
       {status === "loading" &&( <div>
-       <button className="animate-spin"></button>
+       <button className="flex justify-center items-center"></button>
         Loading...</div>) }
 
         {status === "success" && (<div>
@@ -219,7 +219,7 @@ const VerifyPayment = () => {
 
                       <p className="font-black text-xl mt-3">
                         {/* ₦25,000 */}
-                        {amount}
+                        {amount.toLocaleString()}
                       </p>
                     </div>
 
@@ -264,7 +264,7 @@ const VerifyPayment = () => {
                       </span>
 
                       <span className="text-orange-600 text-xl md:text-2xl font-black">
-                       {amount}
+                       {amount.toLocaleString()}
                       </span>
                     </div>
 

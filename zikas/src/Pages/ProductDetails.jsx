@@ -115,7 +115,7 @@ const ProductDetails = () => {
 
               <p className="text-2xl font-extrabold text-green-600">
 
-                ${product.amount}
+                ₦{product.amount.toLocaleString()}
 
               </p>
 
