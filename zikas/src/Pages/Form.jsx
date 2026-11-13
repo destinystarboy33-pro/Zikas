@@ -5,7 +5,8 @@ import Loader from "../Components/Loader"
 
 const Form = () => {
 
-    const {id} = useParams()
+  
+  const {id} = useParams()
 
 const [formData, setFormData] = useState({
     name: "",
@@ -17,6 +18,17 @@ const [products, setproducts] = useState([])
 const [loading, setLoading] = useState(false)
 
 
+useEffect (() =>{
+const resetLooading = () =>{
+setLoading(false)
+}
+
+window.addEventListener("pageshow", resetLooading)
+
+return () =>{
+  window.removeEventListener("pageshow", resetLooading)
+}
+},[])
 
 
 const handlechange = (e) => {
@@ -72,6 +84,8 @@ try {
   )
 
   window.location.assign(pay.data.data.authorization_url);
+
+ 
 } catch (error) {
   console.log(error)
  
