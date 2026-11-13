@@ -1,5 +1,5 @@
  import axios from "axios"
- import { useSearchParams, useParams,  NavLink } from "react-router-dom"
+ import { useSearchParams, NavLink } from "react-router-dom"
  import { useEffect, useState } from "react"
 
 // const VerifyPayment = () => {
@@ -72,7 +72,7 @@ const VerifyPayment = () => {
      const [image, setimage] = useState("")
 
      const reference = searchParams.get("reference")
-     const id = useParams()
+    
      
      console.log(reference)
      
@@ -97,6 +97,7 @@ const VerifyPayment = () => {
            setimage(payment.data.data.image)
            setStatus(payment.data.data.status)
            console.log(image)
+           
          } catch (error) {
              console.log(error.response.data || "Something went wrong")
          }
@@ -123,7 +124,7 @@ const VerifyPayment = () => {
 
   // getProducts()
 
-    },[reference, id])
+    },[reference,image])
 
     
     
