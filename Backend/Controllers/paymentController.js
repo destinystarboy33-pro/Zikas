@@ -120,7 +120,8 @@ const VerifyPayment = async(req, res) =>{
               reference:response.data.data.reference,
               status: response.data.data.status,
              productName: paymentdetails.productId.name,
-             amount: paymentdetails.productId.amount
+             amount: paymentdetails.productId.amount,
+             imaage: paymentdetails.productId.image
               
            }
            })
