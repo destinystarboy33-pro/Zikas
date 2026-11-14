@@ -26,11 +26,13 @@ const Footer = () => {
               <div className="flex flex-col gap-4 text-gray-400 text-sm">
                 <a href="#" className="hover:text-white">Home</a>
                 <NavLink to={"/collections"}>
-                  <p>Collections</p>
+                  <p className=" cursor-pointer">Collections</p>
                 </NavLink>
                 {/* <a href="#collections" className="hover:text-white">Collections</a> */}
                 {/* <a href="#arrivals" className="hover:text-white">New Arrivals</a> */}
-                <a href="#about" className="hover:text-white">About Us</a>
+                <NavLink to={"/about"}>
+                  <p className=" cursor-pointer">About</p>
+                </NavLink>
               </div>
             </div>
 
@@ -55,6 +57,10 @@ const Footer = () => {
                 </a>
                 <a href="#" aria-label="TikTok" className="hover:text-orange-500">
                   <i className="fa-brands fa-tiktok"></i>
+                </a>
+
+                  <a href="https://wa.me/2349075137529" aria-label="Whatsapp" className="hover:text-orange-500">
+                  <i className="fa-brands fa-whatsapp"></i>
                 </a>
               </div>
             </div>
