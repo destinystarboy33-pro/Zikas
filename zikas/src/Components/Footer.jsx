@@ -1,4 +1,4 @@
-// import { NavLink } from "react-router-dom";
+ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
 
@@ -109,8 +109,9 @@ export default Footer;
               <h3 className="font-bold text-orange-500 mb-5">QUICK LINKS</h3>
               <div className="flex flex-col gap-4 text-gray-400 text-sm">
                 <a href="#" className="hover:text-white">Home</a>
-                <a href="#collections" className="hover:text-white">Collections</a>
-                <a href="#arrivals" className="hover:text-white">New Arrivals</a>
+                {/* <a href="#collections" className="hover:text-white">Collections</a> */}
+
+                {/* <a href="#arrivals" className="hover:text-white">New Arrivals</a> */}
                 <a href="#about" className="hover:text-white">About Us</a>
               </div>
             </div>
