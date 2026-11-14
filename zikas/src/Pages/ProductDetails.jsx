@@ -5,7 +5,7 @@ import {FaHeart} from "react-icons/fa"
 
 const ProductDetails = () => {
 
-    const [product, setproducts] = useState([null])
+    const [product, setproducts] = useState([])
     
     const {id} = useParams()
     useEffect(() =>{
@@ -115,7 +115,7 @@ const ProductDetails = () => {
 
               <p className="text-2xl font-extrabold text-green-600">
 
-                ₦{product.amount.toLocaleString()}
+                ₦{Number(product.amount).toLocaleString()}
 
               </p>
 
