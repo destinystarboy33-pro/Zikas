@@ -39,7 +39,9 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-orange-500 mb-5">CUSTOMER CARE</h3>
               <div className="flex flex-col gap-4 text-gray-400 text-sm">
-                <a href="#contact" className="hover:text-white">Contact Us</a>
+                 <NavLink to={"/contact"}>
+                  <p className=" cursor-pointer  hover:text-white">About</p>
+                </NavLink>
                 <a href="#" className="hover:text-white">Shipping Policy</a>
                 <a href="#" className="hover:text-white">Returns & Exchanges</a>
                 <a href="#" className="hover:text-white">Privacy Policy</a>
