@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useState, useEffect} from "react"
 import Loader from "../Components/Loader"
+import BackButton from "../Components/BackButton"
 
 const Form = () => {
 
@@ -94,6 +95,8 @@ try {
 }
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-5">
+
+      <BackButton />
 
        <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-md md:p-8">
 

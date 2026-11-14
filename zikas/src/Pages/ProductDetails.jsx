@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams, NavLink } from "react-router-dom"
 import {FaHeart} from "react-icons/fa"
+import BackButton from "../Components/BackButton"
 
 const ProductDetails = () => {
 
@@ -48,7 +49,7 @@ const ProductDetails = () => {
     <div className="min-h-screen bg-gray-100 py-10 px-4 mt-10">
 
    
-
+            <BackButton />
             
             <div  className="max-w-md md:max-w-lg mx-auto bg-white rounded-3xl shadow-lg overflow-hidden mt-10">
 
