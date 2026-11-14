@@ -1,39 +1,42 @@
+
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams, NavLink } from "react-router-dom"
-import {FaHeart} from "react-icons/fa"
+import { FaHeart } from "react-icons/fa"
 import BackButton from "../Components/BackButton"
 
 const ProductDetails = () => {
 
-    const [product, setproducts] = useState([])
-    
-    const {id} = useParams()
-    useEffect(() =>{
+  const [product, setproducts] = useState([])
 
-  const getProducts = async() =>{
+  const { id } = useParams()
 
-   try {
-      const URL = `https://zikas.onrender.com/product/${id}`
+  useEffect(() => {
 
-    const response = await axios.get(URL)
+    const getProducts = async () => {
 
-    console.log(response)
-    console.log(Array.isArray(response.data))
-    console.log(response.data.Products.name)
-   
-    setproducts(response.data.Products)
-   } catch (error) {
-    console.log("error", error)
-   }
-  }
+      try {
+        const URL = `https://zikas.onrender.com/product/${id}`
 
-  getProducts()
-},[id])
+        const response = await axios.get(URL)
+
+        console.log(response)
+        console.log(Array.isArray(response.data))
+        console.log(response.data.Products.name)
+
+        setproducts(response.data.Products)
+
+      } catch (error) {
+        console.log("error", error)
+      }
+    }
+
+    getProducts()
+
+  }, [id])
 
 
-
-   if (!product) {
+  if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
 
@@ -42,159 +45,242 @@ const ProductDetails = () => {
         </p>
 
       </div>
-    );
+    )
   }
 
+
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 mt-10">
 
-   
-            <BackButton />
-            
-            <div  className="max-w-md md:max-w-lg mx-auto bg-white rounded-3xl shadow-lg overflow-hidden mt-10">
+    <div className="min-h-screen bg-white pt-24 pb-16 px-4 md:px-8">
 
-             <div className="relative">
+      <div className="max-w-7xl mx-auto">
 
-                <img src={product.image} alt={product.name} className="w-full h-64 md:h-80 object-cover"/>
-
-                  <div className="absolute top-4 left-4">
-
-            <span className="bg-white px-3 py-2 rounded-full text-blue-600 font-semibold shadow">
-
-              Featured
-
-            </span>
-
-          </div>
+        {/* BACK BUTTON */}
+        <div className="mb-8">
+          <BackButton />
+        </div>
 
 
-          <button
-            className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow"
-          >
-              <FaHeart className="text-red-700" />
-            {/* <i className="fa-regular fa-heart text-xl text-gray-700"></i> */}
+        {/* PRODUCT DETAILS */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-          </button>
-                
-             </div>
+          {/* PRODUCT IMAGE SECTION */}
+          <div className="relative">
 
-              <div className="p-5">
+            <div className="relative overflow-hidden rounded-2xl bg-gray-100">
 
-                 <div className="flex gap-2 flex-wrap mb-4">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-105 md:h-150 object-cover hover:scale-105 transition-transform duration-700"
+              />
 
-            <span className="bg-gray-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+              {/* FEATURE LABEL */}
+              <div className="absolute top-5 left-5">
 
-              New{" "}
+                <span className="bg-white text-black text-xs font-bold tracking-wider uppercase px-5 py-3 rounded-full shadow-md">
+                  Featured Collection
+                </span>
 
-              <i className="fa-solid fa-fire text-orange-500"></i>
+              </div>
 
-            </span>
+              {/* HEART ICON */}
+              <button
+                className="absolute top-5 right-5 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-orange-500 transition-colors duration-300 group"
+              >
+                <FaHeart className="text-gray-500 group-hover:text-white transition-colors" />
+              </button>
 
+            </div>
 
-            <span className="bg-gray-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+            {/* IMAGE FOOTER */}
+            <div className="flex items-center justify-between mt-5 px-1">
 
-              Special Offer{" "}
-
-              <i className="fa-solid fa-fire text-orange-500"></i>
-
-            </span>
-
-          </div>
-
-           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-
-            {product.name}
-
-          </h1>
-
-           <div className="mt-6">
-
-            <div className="flex items-center gap-3">
-
-
-              {/* CURRENT PRICE */}
-
-              <p className="text-2xl font-extrabold text-green-600">
-
-                ₦{Number(product.amount).toLocaleString()}
-
+              <p className="text-xs font-semibold tracking-[2px] text-gray-400 uppercase">
+                Zikas Exclusive
               </p>
 
+              <p className="text-xs text-gray-400">
+                Style that speaks.
+              </p>
+
+            </div>
+
+          </div>
 
 
-              {/* {product.oldPrice && (
+          {/* PRODUCT INFORMATION */}
+          <div className="flex flex-col pt-2 lg:pt-8">
 
-                <del className="text-red-600 text-lg">
+            {/* BRAND */}
+            <p className="text-orange-500 text-xs font-bold tracking-[4px] uppercase mb-5">
+              ZIKAS / COLLECTION
+            </p>
 
-                  ${product.oldPrice.toLocaleString()}
 
-                </del>
+            {/* PRODUCT NAME */}
+            <h1 className="text-3xl md:text-5xl font-black text-black uppercase leading-tight tracking-tight">
+              {product.name}
+            </h1>
 
-              )} */}
+
+            {/* PRODUCT LABELS */}
+            <div className="flex gap-3 flex-wrap mt-6">
+
+              <span className="bg-orange-50 text-orange-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">
+                New Arrival
+              </span>
+
+              <span className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">
+                Premium Quality
+              </span>
 
             </div>
 
 
-            {/* OFFER MESSAGE */}
+            {/* PRICE SECTION */}
+            <div className="mt-9 pb-7 border-b border-gray-200">
 
-            {product.amount && (
-
-              <p className="text-sm text-blue-600 font-medium mt-1">
-
-                Special offer available
-
+              <p className="text-xs text-gray-400 uppercase font-bold tracking-[2px] mb-3">
+                Product Price
               </p>
 
-            )}
+              <div className="flex items-center gap-3 flex-wrap">
 
-          </div>
-
-
-          {/* DESCRIPTION */}
-
-          <p className="text-gray-600 mt-6 leading-relaxed">
-
-            {product.description}
-
-          </p>
-
-
-         
-          <div className="flex mt-7 w-full justify-center items-center">
-           
-
-        <NavLink to={`/form/${product._id}`} className={"w-full block"}> 
-          
-            <button className=" bg-orange-500 text-white text-center mx-3 py-1.5 w-full rounded-lg font-semibold hover:bg-orange-700 transition cursor-pointer">Order Now</button>
-
-        </NavLink>
-          </div>
+                <p className="text-3xl md:text-4xl font-black text-black">
+                  ₦{Number(product.amount).toLocaleString()}
+                </p>
 
               </div>
-              
-         </div>
 
-           <div className="mt-16 bg-white text-black text-center py-12 px-6">
+              {product.amount && (
 
-          <p className="text-orange-500 text-xs font-bold tracking-[4px] mb-4">
-            THE ZIKAS STANDARD
-          </p>
+                <p className="text-sm text-orange-600 font-medium mt-3">
+                  Special offer available
+                </p>
 
-          <h3 className="text-3xl md:text-4xl font-black">
-            YOUR STYLE. YOUR IDENTITY.
-          </h3>
+              )}
 
-          <p className="text-gray-400 mt-4 text-sm">
-            Wear it with confidence. Wear it your way.
-          </p>
+            </div>
+
+
+            {/* DESCRIPTION */}
+            <div className="mt-8">
+
+              <h3 className="text-sm font-bold uppercase tracking-[2px] text-black mb-4">
+                Product Description
+              </h3>
+
+              <p className="text-gray-500 text-sm md:text-base leading-8">
+                {product.description}
+              </p>
+
+            </div>
+
+
+            {/* PRODUCT FEATURES */}
+            <div className="grid grid-cols-2 gap-4 mt-9 py-7 border-y border-gray-200">
+
+              <div className="flex items-center gap-3">
+
+                <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center">
+                  <i className="fa-solid fa-shirt text-orange-500"></i>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold text-black">
+                    Premium Style
+                  </p>
+
+                  <p className="text-[11px] text-gray-400 mt-1">
+                    Quality fashion
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div className="flex items-center gap-3">
+
+                <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center">
+                  <i className="fa-solid fa-star text-orange-500"></i>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold text-black">
+                    Zikas Quality
+                  </p>
+
+                  <p className="text-[11px] text-gray-400 mt-1">
+                    Made for your style
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* ORDER BUTTON */}
+            <div className="mt-9">
+
+              <NavLink
+                to={`/form/${product._id}`}
+                className="w-full bg-orange-500 hover:bg-black text-white flex items-center justify-center gap-3 py-5 rounded-xl font-bold text-sm uppercase tracking-[2px] transition-all duration-300 shadow-lg shadow-orange-500/20"
+              >
+
+                Order Now
+
+                <i className="fa-solid fa-arrow-right"></i>
+
+              </NavLink>
+
+              <p className="text-center text-xs text-gray-400 mt-4">
+                Experience fashion the Zikas way.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
 
-      
+        {/* ZIKAS BRAND SECTION */}
+        <div className="mt-24 bg-black text-white rounded-2xl py-16 md:py-24 px-6 text-center relative overflow-hidden">
+
+          <div className="absolute w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -top-20 -left-20"></div>
+
+          <div className="absolute w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -bottom-20 -right-20"></div>
+
+          <div className="relative z-10">
+
+            <p className="text-orange-500 text-xs font-bold tracking-[5px] mb-6">
+              THE ZIKAS STANDARD
+            </p>
+
+            <h3 className="text-3xl md:text-5xl font-black tracking-tight">
+              YOUR STYLE.
+              <span className="text-orange-500"> YOUR IDENTITY.</span>
+            </h3>
+
+            <p className="text-gray-400 mt-6 text-sm md:text-base max-w-lg mx-auto leading-7">
+              Fashion is more than what you wear. It's how you express
+              yourself. Discover your style and wear it with confidence.
+            </p>
+
+            <div className="w-16 h-1 bg-orange-500 mx-auto mt-9 rounded-full"></div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
+
   )
+
 }
 
 export default ProductDetails

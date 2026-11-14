@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import {HashLink} from "react-router-hash-link"
 import Reveal from "../Components/Reveal";
 
 const Hero = () => {
@@ -12,7 +11,6 @@ const Hero = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
-          {/* Left Content */}
           <div className="py-10">
 
             <p className="text-orange-500 uppercase tracking-[4px] text-sm font-bold mb-6">
@@ -33,15 +31,14 @@ const Hero = () => {
               essentials created for those who stand out.
             </p>
 
-            {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 mt-9">
 
-              <HashLink
-                to="/#products"
+              <NavLink
+                to="/collections"
                 className="bg-orange-500 text-white rounded-lg px-8 py-4 font-semibold hover:bg-black transition"
               >
                 Explore Collection
-              </HashLink>
+              </NavLink>
 
               <NavLink
                 to="/about"
@@ -52,7 +49,6 @@ const Hero = () => {
 
             </div>
 
-            {/* Small Stats */}
             <div className="flex gap-10 mt-14 border-t border-gray-200 pt-7">
 
               <div>
@@ -80,7 +76,6 @@ const Hero = () => {
 
           </div>
 
-          {/* Right Image */}
           <div className="relative">
 
             <div className="absolute top-5 right-5 w-full h-full bg-orange-500">
@@ -108,7 +103,6 @@ const Hero = () => {
 
             </div>
 
-            {/* Floating Label */}
             <div className="absolute -left-5 top-12 bg-orange-500 text-white px-5 py-4">
               <p className="text-xs uppercase tracking-widest">
                 The New

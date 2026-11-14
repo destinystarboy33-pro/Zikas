@@ -94,9 +94,11 @@ try {
 }
 }
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-5">
+    <div className="bg-gray-50 px-5">
 
       <BackButton />
+      <div  className="flex min-h-screen items-center justify-center ">
+
 
        <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-md md:p-8">
 
@@ -153,6 +155,7 @@ try {
         <button  onSubmit={() => handleOrder(products._id)} disabled ={loading}  className={`mt-2 w-full rounded-lg  py-3 font-semibold flex items-center justify-center text-white hover:bg-orange-600 ${loading ? "bg-orange-800 ": "bg-orange-500"}`}>{loading?<Loader/>  : "Order Now"}</button>
       </form>
       </div>
+        </div>
     </div>
   )
 }
