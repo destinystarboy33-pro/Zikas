@@ -24,14 +24,14 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-orange-500 mb-5">QUICK LINKS</h3>
               <div className="flex flex-col gap-4 text-gray-400 text-sm">
-                <a href="#" className="hover:text-white">Home</a>
+                <a href="#" className=" cursor-pointer hover:text-white">Home</a>
                 <NavLink to={"/collections"}>
-                  <p className=" cursor-pointer">Collections</p>
+                  <p className=" cursor-pointer hover:text-white">Collections</p>
                 </NavLink>
                 {/* <a href="#collections" className="hover:text-white">Collections</a> */}
                 {/* <a href="#arrivals" className="hover:text-white">New Arrivals</a> */}
                 <NavLink to={"/about"}>
-                  <p className=" cursor-pointer">About</p>
+                  <p className=" cursor-pointer  hover:text-white">About</p>
                 </NavLink>
               </div>
             </div>
@@ -49,17 +49,17 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-orange-500 mb-5">FOLLOW US</h3>
               <div className="flex gap-5 text-xl">
-                <a href="#" aria-label="Instagram" className="hover:text-orange-500">
+                <a href="#" aria-label="Instagram" className="hover:text-red-500">
                   <i className="fa-brands fa-instagram"></i>
                 </a>
-                <a href="#" aria-label="Facebook" className="hover:text-orange-500">
+                <a href="#" aria-label="Facebook" className="hover:text-blue-500">
                   <i className="fa-brands fa-facebook"></i>
                 </a>
                 <a href="#" aria-label="TikTok" className="hover:text-orange-500">
                   <i className="fa-brands fa-tiktok"></i>
                 </a>
 
-                  <a href="https://wa.me/2349075137529" aria-label="Whatsapp" className="hover:text-orange-500">
+                  <a href="https://wa.me/2349075137529" aria-label="Whatsapp" className="hover:text-green-500">
                   <i className="fa-brands fa-whatsapp"></i>
                 </a>
               </div>
