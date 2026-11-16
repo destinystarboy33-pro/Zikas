@@ -210,6 +210,30 @@ try {
 }
 }
 
+const GetFeaturedProducts = async (req, res) => {
+  try {
+    const threeDaysAgo = new Date(
+      Date.now() - 3 * 24 * 60 * 60 * 1000
+    );
+
+    const featuredProducts = await Products.find({
+      createdAt: {
+        $gte: threeDaysAgo
+      }
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json({
+      status: true,
+      products: featuredProducts
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      status: false,
+      message: error.message
+    });
+  }
+};
 
 
 
@@ -218,4 +242,6 @@ try {
 
 
 
-export {CreateProduct, UpdateProduct, DeleteProduct, GetProductById, Getallproducts, FilteredProduct}
+
+
+export {CreateProduct, UpdateProduct, DeleteProduct, GetProductById, Getallproducts, FilteredProduct, GetFeaturedProducts}
