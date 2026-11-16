@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import axios from "axios"
 import Reveal from "../Components/Reveal"
-import Loader from "../Components/Loader"
 
 const ProductCards = () => {
   const [products, setproducts] = useState([])
@@ -37,8 +36,12 @@ useEffect(() =>{
 },[])
 
 
-   if (loading) {
-    return <Loader />;
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <i className="fa-solid fa-spinner fa-spin text-3xl text-orange-500" />
+      </div>
+    );
   }
   return (
     <><Reveal>

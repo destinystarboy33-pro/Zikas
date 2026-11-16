@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
@@ -19,7 +18,6 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-
       <nav className="max-w-7xl mx-auto px-6 md:px-10">
 
         <div className="h-20 flex items-center justify-between">
@@ -35,7 +33,6 @@ const Navbar = () => {
 
           {/* DESKTOP NAVIGATION */}
           <div className="hidden lg:flex items-center gap-10">
-
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -46,46 +43,68 @@ const Navbar = () => {
                 {link.name}
               </NavLink>
             ))}
-
           </div>
 
-          {/* DESKTOP SHOP BUTTON */}
-          <div className="hidden lg:block">
+          {/* DESKTOP ACTIONS */}
+          <div className="hidden lg:flex items-center gap-5">
+
+            <Link
+              to="/search"
+              aria-label="Search products"
+              className="text-xl text-gray-800 hover:text-orange-500 transition"
+            >
+              <i className="fa-solid fa-magnifying-glass" />
+            </Link>
+
             <Link
               to="/collections"
               className="bg-black text-white px-7 py-3 text-sm font-bold hover:bg-orange-500 transition duration-300 rounded-2xl"
             >
               SHOP NOW
-              <i className="fa-solid fa-arrow-right ml-3 " />
+              <i className="fa-solid fa-arrow-right ml-3" />
             </Link>
+
           </div>
 
-          {/* MOBILE MENU BUTTON */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-          >
-            <span
-              className={`h-0.5 w-7 bg-black transition duration-300 ${
-                menuOpen ? "rotate-45 translate-y-1" : ""
-              }`}
-            />
+          {/* MOBILE ACTIONS */}
+          <div className="lg:hidden flex items-center gap-5">
 
-            <span
-              className={`h-0.5 w-7 bg-black transition duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-1" : ""
-              }`}
-            />
-          </button>
+            <Link
+              to="/search"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Search products"
+              className="text-xl text-gray-800 hover:text-orange-500 transition"
+            >
+              <i className="fa-solid fa-magnifying-glass" />
+            </Link>
+
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex flex-col justify-center items-center gap-1.5 w-10 h-10"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              <span
+                className={`h-0.5 w-7 bg-black transition duration-300 ${
+                  menuOpen ? "rotate-45 translate-y-1" : ""
+                }`}
+              />
+
+              <span
+                className={`h-0.5 w-7 bg-black transition duration-300 ${
+                  menuOpen ? "-rotate-45 -translate-y-1" : ""
+                }`}
+              />
+            </button>
+
+          </div>
 
         </div>
 
         {/* MOBILE NAVIGATION */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-112.5 pb-6" : "max-h-0"
+            menuOpen ? "max-h-[500px] pb-6" : "max-h-0"
           }`}
         >
 
@@ -119,11 +138,9 @@ const Navbar = () => {
             </Link>
 
           </div>
-
         </div>
 
       </nav>
-
     </header>
   );
 };

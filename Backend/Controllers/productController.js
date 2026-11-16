@@ -236,6 +236,37 @@ const GetFeaturedProducts = async (req, res) => {
   }
 };
 
+export const SearchProducts = async (req, res) => {
+  try {
+    const { search, category } = req.query;
+
+    const filter = {};
+
+    if (search) {
+      filter.name = {
+        $regex: search,
+        $options: "i"
+      };
+    }
+
+    if (category) {
+      filter.category = category;
+    }
+
+    const products = await product.find(filter);
+
+    res.status(200).json({
+      status: true,
+      products
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      status: false,
+      message: error.message
+    });
+  }
+};
 
 
 
@@ -245,4 +276,5 @@ const GetFeaturedProducts = async (req, res) => {
 
 
 
-export {CreateProduct, UpdateProduct, DeleteProduct, GetProductById, Getallproducts, FilteredProduct, GetFeaturedProducts}
+
+export {CreateProduct, UpdateProduct, DeleteProduct, GetProductById, Getallproducts, FilteredProduct, GetFeaturedProducts, SearchProducts}

@@ -51,7 +51,7 @@ const ProductDetails = () => {
 
   return (
 
-    <div className="min-h-screen bg-white pt-24 pb-16 px-4 md:px-8">
+    <div className="min-h-screen bg-white pt-7 pb-16 px-4 md:px-8">
 
       <div className="max-w-7xl mx-auto">
 

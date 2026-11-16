@@ -1,4 +1,4 @@
-import { CreateProduct, UpdateProduct, DeleteProduct, GetProductById, Getallproducts, FilteredProduct, GetFeaturedProducts } from "../Controllers/productController.js";
+import { CreateProduct, UpdateProduct, DeleteProduct, GetProductById, Getallproducts, FilteredProduct, GetFeaturedProducts, SearchProducts } from "../Controllers/productController.js";
 import {Router} from "express"
 import upload from "../config/multer.js";
 import {authenticate, authorize} from "../Middleware/authmiddleware.js"
@@ -6,6 +6,7 @@ import {authenticate, authorize} from "../Middleware/authmiddleware.js"
 const productRouter = Router()
 
 productRouter.get("/products", Getallproducts)
+productRouter.get("/search", SearchProducts)
 productRouter.get("/filter", FilteredProduct)
 productRouter.get("/featured", GetFeaturedProducts);
 productRouter.post("/create", upload.single('image'), CreateProduct)

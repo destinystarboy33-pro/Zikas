@@ -17,6 +17,7 @@ import EditProduct from "./Admin/EditProduct";
 import ScrollToTop from "./Components/ScrollToTop";
 import Collections from "./Pages/Collections";
 import NewArrival from "./Pages/New-Arrival";
+import Search from "./Pages/Search"
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
             <Route path="/collections" element= {<Collections />}></Route>
              <Route path="/NewArrival" element= {<NewArrival />}></Route>
           </Route>
+
+           <Route path="/search" element= {<Search />}></Route>
 
           
           
