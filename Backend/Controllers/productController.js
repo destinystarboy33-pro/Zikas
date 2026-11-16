@@ -236,7 +236,7 @@ const GetFeaturedProducts = async (req, res) => {
   }
 };
 
-export const SearchProducts = async (req, res) => {
+ const SearchProducts = async (req, res) => {
   try {
     const { search, category } = req.query;
 
