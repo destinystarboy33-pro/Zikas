@@ -185,7 +185,7 @@ const Search = () => {
 
               {products.map((product) => (
                 <Link
-                  to={`/product/${product._id}`}
+                  to={`/productdetails/${product._id}`}
                   key={product._id}
                   className="group"
                 >
