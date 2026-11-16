@@ -216,7 +216,7 @@ const GetFeaturedProducts = async (req, res) => {
       Date.now() - 3 * 24 * 60 * 60 * 1000
     );
 
-    const featuredProducts = await Products.find({
+    const featuredProducts = await product.find({
       createdAt: {
         $gte: threeDaysAgo
       }
@@ -224,7 +224,8 @@ const GetFeaturedProducts = async (req, res) => {
 
     res.status(200).json({
       status: true,
-      products: featuredProducts
+      products: featuredProducts,
+      message: "Product fetch successfully"
     });
 
   } catch (error) {
