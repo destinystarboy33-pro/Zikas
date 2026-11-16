@@ -6,7 +6,7 @@ const ScrollToTop = () => {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.key]);
+  }, [location]);
 
   return null;
 };
