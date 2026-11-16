@@ -19,6 +19,13 @@ app.use(
   }),
 );
 app.use(express.json())
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: true,
+    message: "Zikas server is awake"
+  })
+})
 app.use("/auth", router)
 app.use("/product", productRouter)
 app.use("/payment",paymentRoute)

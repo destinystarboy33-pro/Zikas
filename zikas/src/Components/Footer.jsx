@@ -1,6 +1,32 @@
  import { NavLink } from "react-router-dom";
+ import {useEffect} from "react"
+ import axios from "axios"
 
 const Footer = () => {
+
+
+  useEffect(() => {
+
+  const wakeBackend = async () => {
+    try {
+
+      await axios.get(
+        "https://zikas.onrender.com/health"
+      )
+
+      console.log("Backend is awake")
+
+    } catch (error) {
+      console.log(error)
+
+      console.log("Backend wake-up request sent")
+
+    }
+  }
+
+  wakeBackend()
+
+}, [])
 
   // const year = new Date().getFullYear();
 
