@@ -16,6 +16,7 @@ import Login from "./Admin/Login";
 import EditProduct from "./Admin/EditProduct";
 import ScrollToTop from "./Components/ScrollToTop";
 import Collections from "./Pages/Collections";
+import NewArrival from "./Pages/New-Arrival";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/about" element={<AboutHero />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/collections" element= {<Collections />}></Route>
+             <Route path="/NewArrival" element= {<NewArrival />}></Route>
           </Route>
 
           

@@ -223,9 +223,9 @@ const GetFeaturedProducts = async (req, res) => {
     }).sort({ createdAt: -1 });
 
     res.status(200).json({
+      message: "Product fetch successfully",
       status: true,
-      products: featuredProducts,
-      message: "Product fetch successfully"
+      products: featuredProducts
     });
 
   } catch (error) {
