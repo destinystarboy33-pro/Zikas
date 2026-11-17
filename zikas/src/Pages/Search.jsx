@@ -12,93 +12,65 @@ const Search = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!search.trim()) {
-      setProducts([]);
-      setLoading(false);
-      setError("");
-      return;
-    }
+    const searchValue = search.trim();
+
+    // Don't make an API request when search is empty
+    if (!searchValue) return;
+
+    const controller = new AbortController();
 
     const timer = setTimeout(async () => {
       try {
         setLoading(true);
         setError("");
+        setProducts([]);
 
         const response = await axios.get(
           "https://zikas.onrender.com/product/search",
           {
-            params: { search: search.trim() }
+            params: { search: searchValue },
+            signal: controller.signal
           }
         );
 
         setProducts(response.data.products || []);
-      } catch (error) {
-        console.log(error);
-        setError("Unable to search products. Please try again.");
+
+      } catch (err) {
+        if (!controller.signal.aborted) {
+          console.log(err);
+          setError("Unable to search products. Please try again.");
+        }
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
     }, 400);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+
   }, [search]);
 
   return (
     <div className="min-h-screen bg-white">
 
-      {/* HEADER */}
-       {/* <header className="bg-black text-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
+      <main className="max-w-7xl mx-auto px-5 md:px-10">
 
-          <Link to="/" className="text-3xl font-black tracking-tighter">
-            ZIKAS<span className="text-orange-500">.</span>
-          </Link>
+        {/* SEARCH INPUT */}
+        <section className="pb-12">
 
           <button
             onClick={() => navigate(-1)}
-            className="w-11 h-11 border border-white/30 rounded-full flex items-center justify-center hover:bg-orange-500 hover:border-orange-500 transition"
-            aria-label="Close search"
+            className="w-11 h-11 border border-gray-200 rounded-full flex items-center justify-center transition hover:bg-gray-100"
+            aria-label="Go back"
           >
-            <i className="fa-solid fa-xmark text-xl" />
-          </button>
-
-        </div>
-      </header>  */}
-
-      <main className="max-w-7xl mx-auto px-5 md:px-10">
-
-        {/* SEARCH HERO */}
-        <section className=" pb-12">
-
-          {/* <div className="text-center max-w-3xl mx-auto">
-
-            <span className="inline-block bg-orange-100 text-orange-600 px-5 py-2 rounded-full text-xs font-bold tracking-widest">
-              SEARCH
-            </span>
-
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight mt-6">
-              Find Your Style
-            </h1>
-
-            <p className="text-gray-500 text-base md:text-xl mt-4">
-              Search for products across our collection.
-            </p>
-
-          </div> */}
-
-          {/* SEARCH INPUT */}
-          <div className="">
-
-             <button
-            onClick={() => navigate(-1)}
-            className="w-11 h-11 border border-white/30 rounded-full flex items-center justify-center transition"
-            aria-label="Close search">
             <i className="fa-solid fa-arrow-left text-xl" />
           </button>
 
-
-          <div  className=" max-w-5xl mx-auto">
-
+          <div className="max-w-5xl mx-auto">
 
             <div className="flex items-center gap-3 border border-gray-200 rounded-full px-5 py-3 md:px-7 md:py-4 shadow-sm focus-within:border-orange-500 focus-within:shadow-md transition">
 
@@ -111,7 +83,7 @@ const Search = () => {
                 onChange={(e) => setSearch(e.target.value)}
                 autoFocus
                 className="flex-1 min-w-0 outline-none text-base md:text-lg bg-transparent"
-                />
+              />
 
               {search && (
                 <button
@@ -127,13 +99,11 @@ const Search = () => {
                 type="button"
                 aria-label="Search"
                 className="hidden sm:flex w-12 h-12 rounded-full bg-black text-white items-center justify-center hover:bg-orange-500 transition"
-                >
+              >
                 <i className="fa-solid fa-arrow-right" />
               </button>
 
             </div>
-          </div>
-
           </div>
 
         </section>
@@ -158,34 +128,45 @@ const Search = () => {
 
           </div>
 
-          {loading ? (
-            <div className="py-20 text-center">
-              <i className="fa-solid fa-spinner fa-spin text-3xl text-orange-500" />
-              <p className="text-gray-500 mt-4">Finding your products...</p>
-            </div>
+          {!search.trim() ? (
 
-          ) : error ? (
-            <div className="py-20 text-center">
-              <p className="text-red-500">{error}</p>
-            </div>
-
-          ) : !search.trim() ? (
             <div className="py-16 text-center">
               <i className="fa-solid fa-bag-shopping text-4xl text-gray-300" />
+
               <h3 className="text-xl font-bold mt-5">
                 What are you looking for?
               </h3>
+
               <p className="text-gray-500 mt-2">
                 Enter a product name to explore our collection.
               </p>
             </div>
 
+          ) : loading ? (
+
+            <div className="py-20 text-center">
+              <i className="fa-solid fa-spinner fa-spin text-3xl text-orange-500" />
+
+              <p className="text-gray-500 mt-4">
+                Finding your products...
+              </p>
+            </div>
+
+          ) : error ? (
+
+            <div className="py-20 text-center">
+              <p className="text-red-500">{error}</p>
+            </div>
+
           ) : products.length === 0 ? (
+
             <div className="py-20 text-center">
               <i className="fa-solid fa-magnifying-glass text-4xl text-gray-300" />
+
               <h3 className="text-xl font-bold mt-5">
                 No products found
               </h3>
+
               <p className="text-gray-500 mt-2">
                 Try another product name.
               </p>

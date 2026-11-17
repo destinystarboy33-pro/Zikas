@@ -146,20 +146,20 @@ const ProductDetails = () => {
               </p>
 
               <div className="flex items-center gap-2">
-
-                    {product.oldPrice && (
-                      <span className="text-gray-400 line-through text-sm">
-                        ₦{Number(product.oldPrice).toLocaleString()}
-                      </span>
-                    )}
-
-                    <span className="text-black font-bold">
+                
+                    <span className="text-black text-2xl font-bold">
                       ₦{Number(product.amount).toLocaleString()}
                     </span>
 
+                    {product.discountPrice && (
+                      <span className="text-gray-400 line-through text-sm">
+                        ₦{Number(product.discountPrice).toLocaleString()}
+                      </span>
+                    )}
+
               </div>
 
-              {product.amount && (
+              {product.discountPrice && (
 
                 <p className="text-sm text-orange-600 font-medium mt-3">
                   Special offer available

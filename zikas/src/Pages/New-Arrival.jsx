@@ -135,9 +135,20 @@ const NewArrival = () => {
 
                     <div className="flex items-center justify-between gap-3">
 
-                      <p className="text-lg md:text-xl font-extrabold text-gray-900">
-                        ₦{Number(product.amount).toLocaleString()}
-                      </p>
+                  
+                   <div className="flex items-center gap-2">
+                
+                    <span className="text-black text-xl md:text-2xl font-bold">
+                      ₦{Number(product.amount).toLocaleString()}
+                    </span>
+
+                    {product.discountPrice && (
+                      <span className="text-gray-400 text-lg md:text-xl line-through text-sm">
+                        ₦{Number(product.discountPrice).toLocaleString()}
+                      </span>
+                    )}
+
+              </div>
 
                       <NavLink to={`/productdetails/${product._id}`}>
                         <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-3 py-2.5 rounded-lg transition duration-300 whitespace-nowrap">

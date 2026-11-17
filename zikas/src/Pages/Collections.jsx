@@ -461,9 +461,20 @@ const Collections = () => {
                   {/* PRICE AND ACTION */}
                   <div className="flex items-center justify-between gap-2 mt-auto pt-4">
 
-                    <p className="text-sm md:text-lg font-extrabold text-black">
+                  
+                   <div className="flex items-center gap-2">
+                
+                    <span className="text-black text-xl md:text-2xl font-bold">
                       ₦{Number(product.amount).toLocaleString()}
-                    </p>
+                    </span>
+
+                    {product.discountPrice && (
+                      <span className="text-gray-400 text-lg md:text-xl line-through text-sm">
+                        ₦{Number(product.discountPrice).toLocaleString()}
+                      </span>
+                    )}
+
+              </div>
 
                     <NavLink
                       to={`/productdetails/${product._id}`}
