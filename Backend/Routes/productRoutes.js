@@ -9,8 +9,8 @@ productRouter.get("/products", Getallproducts)
 productRouter.get("/search", SearchProducts)
 productRouter.get("/filter", FilteredProduct)
 productRouter.get("/featured", GetFeaturedProducts);
-productRouter.post("/create", authenticate, authorize, upload.single('image'), CreateProduct)
-productRouter.patch("/:id", authenticate, upload.single('image'), UpdateProduct)
+productRouter.post("/create", authenticate, upload.single('image'), CreateProduct)
+productRouter.patch("/:id", authenticate, authorize , upload.single('image'), UpdateProduct)
 productRouter.delete("/products/:id", authenticate,   DeleteProduct)
 productRouter.get("/:id", GetProductById)
 
