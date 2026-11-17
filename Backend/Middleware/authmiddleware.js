@@ -23,6 +23,7 @@ const authenticate = (req, res, next) => {
     next();
   } catch (error) {
     console.log(error);
+    console.log(error.message);
     return res.status(StatusCodes.UNAUTHORIZED).json({
       message: "Invalid or expired token",
       status: false,

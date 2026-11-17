@@ -84,6 +84,7 @@ const CreateProduct = () => {
       setShowMessage(true);
 
     } catch (error) {
+      console.log(error.message)
       console.log(error.response.message);
       setErrorMessage(true);
 
