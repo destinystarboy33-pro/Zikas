@@ -69,8 +69,11 @@ const UpdateProduct = async(req, res) =>{
   try {
     const updateData = {
         name: req.body.name,
-        newPrice: req.body.newPrice,
-        description: req.body.description
+        description: req.body.description,
+        amount: req.body.amount,
+        category: req.body.category,
+        subcategory: req.body.subcategory,
+        oldPrice: req.body.oldPrice
     }
 
 
