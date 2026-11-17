@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,10 +35,12 @@ const Login = () => {
         formData
       );
 
+      console.log(response.data)
       console.log(response.data.status)
 
+
       if (response.data.status) {
-        localStorage.setItem("adminToken", response.data.token);
+        Cookies.set("token", response.data.token);
         localStorage.setItem(
           "admin",
           JSON.stringify(response.data.admin)
@@ -45,6 +49,7 @@ const Login = () => {
         navigate("/dashboard");
       }
     } catch (error) {
+      console.log(error.message)
       setErrorMessage(
         error.response?.data?.message || "Unable to login. Please try again."
       );
