@@ -28,7 +28,7 @@ const Dashboard = () => {
       );
     } catch (err) {
       console.log(err.message);
-      alert("Failed to delete product.");
+      alert("Failed to delete products.");
     }
   };
 
