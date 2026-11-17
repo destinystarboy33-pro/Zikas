@@ -73,7 +73,7 @@ const UpdateProduct = async(req, res) =>{
         amount: req.body.amount,
         category: req.body.category,
         subcategory: req.body.subcategory,
-        oldPrice: req.body.oldPrice
+        discountPrice: req.body. discountPrice
     }
 
 

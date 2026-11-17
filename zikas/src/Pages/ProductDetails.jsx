@@ -145,11 +145,17 @@ const ProductDetails = () => {
                 Product Price
               </p>
 
-              <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2">
 
-                <p className="text-3xl md:text-4xl font-black text-black">
-                  ₦{Number(product.amount).toLocaleString()}
-                </p>
+                    {product.oldPrice && (
+                      <span className="text-gray-400 line-through text-sm">
+                        ₦{Number(product.oldPrice).toLocaleString()}
+                      </span>
+                    )}
+
+                    <span className="text-black font-bold">
+                      ₦{Number(product.amount).toLocaleString()}
+                    </span>
 
               </div>
 
