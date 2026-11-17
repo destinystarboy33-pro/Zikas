@@ -32,7 +32,7 @@ const authenticate = (req, res, next) => {
 
 const authorize = (...role) => {
   return (req, res, next) => {
-    if (!role.includes(req.admin.role)) {
+    if (!role.includes(req.role.admin)) {
       res.status(StatusCodes.FORBIDDEN).json({
         message: "You do not have permission to access this resource",
         status: false,

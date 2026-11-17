@@ -51,6 +51,7 @@ const Dashboard = () => {
       );
     } catch (error) {
       console.log(error.response);
+       console.log(error.message);
       setError("Failed to load products. Please try again.");
     } finally {
       setLoading(false);
