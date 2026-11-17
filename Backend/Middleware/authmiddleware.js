@@ -6,7 +6,7 @@ const authenticate = (req, res, next) => {
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      res.status(StatusCodes.UNAUTHORIZED).json({
+      res.status(StatusCodes.NETWORK_AUTHENTICATION_REQUIRED).json({
         message: "Authentication required",
         status: false,
       });
