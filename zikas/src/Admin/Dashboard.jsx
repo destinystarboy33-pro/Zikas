@@ -1,6 +1,8 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+
 // import AdminSidebar from "../Components/SideBar";
 
 const API_URL = "https://zikas.onrender.com/product/products";
@@ -20,8 +22,16 @@ const Dashboard = () => {
 
     if (!confirmDelete) return;
 
+    const token = Cookies.get("token")
+
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await axios.delete(`${API_URL}/${id}`,
+         {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setProducts((prevProducts) =>
         prevProducts.filter((product) => product._id !== id)

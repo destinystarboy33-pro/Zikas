@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 
 const API_URL = "https://zikas.onrender.com/product/create";
@@ -53,7 +54,7 @@ const CreateProduct = () => {
       formData.append("subcategory", data.subcategory);
 
       // const token = localStorage.getItem("adminToken");
-      const token = localStorage.getItem("token");
+      const token = Cookies.get("token");
 
       const response = await axios.post(
         API_URL,

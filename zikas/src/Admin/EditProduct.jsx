@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 
 
@@ -37,7 +38,7 @@ const EditProduct = () => {
 
       try {
 
-        const token = localStorage.getItem("token");
+        const token = Cookies.get("token");
 
         const response = await axios.get(
           `${API_URL}`,
@@ -127,7 +128,7 @@ const EditProduct = () => {
       formData.append("category", data.category);
       formData.append("subcategory", data.subcategory);
 
-      const token = localStorage.getItem("token");
+      const token = Cookies.get("token");
 
       const response = await axios.patch(
         `${API_URL}`,
