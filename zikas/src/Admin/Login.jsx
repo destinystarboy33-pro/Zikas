@@ -33,6 +33,8 @@ const Login = () => {
         formData
       );
 
+      console.log(response.data.status)
+
       if (response.data.status) {
         localStorage.setItem("adminToken", response.data.token);
         localStorage.setItem(
