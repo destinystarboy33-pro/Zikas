@@ -47,7 +47,7 @@ const Search = () => {
     <div className="min-h-screen bg-white">
 
       {/* HEADER */}
-      {/* <header className="bg-black text-white">
+       {/* <header className="bg-black text-white">
         <div className="max-w-7xl mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
 
           <Link to="/" className="text-3xl font-black tracking-tighter">
@@ -63,7 +63,7 @@ const Search = () => {
           </button>
 
         </div>
-      </header> */}
+      </header>  */}
 
       <main className="max-w-7xl mx-auto px-5 md:px-10">
 
@@ -87,7 +87,18 @@ const Search = () => {
           </div> */}
 
           {/* SEARCH INPUT */}
-          <div className="mt-12 max-w-5xl mx-auto">
+          <div className="">
+
+             <button
+            onClick={() => navigate(-1)}
+            className="w-11 h-11 border border-white/30 rounded-full flex items-center justify-center transition"
+            aria-label="Close search">
+            <i className="fa-solid fa-arrow-left text-xl" />
+          </button>
+
+
+          <div  className=" max-w-5xl mx-auto">
+
 
             <div className="flex items-center gap-3 border border-gray-200 rounded-full px-5 py-3 md:px-7 md:py-4 shadow-sm focus-within:border-orange-500 focus-within:shadow-md transition">
 
@@ -100,7 +111,7 @@ const Search = () => {
                 onChange={(e) => setSearch(e.target.value)}
                 autoFocus
                 className="flex-1 min-w-0 outline-none text-base md:text-lg bg-transparent"
-              />
+                />
 
               {search && (
                 <button
@@ -116,11 +127,12 @@ const Search = () => {
                 type="button"
                 aria-label="Search"
                 className="hidden sm:flex w-12 h-12 rounded-full bg-black text-white items-center justify-center hover:bg-orange-500 transition"
-              >
+                >
                 <i className="fa-solid fa-arrow-right" />
               </button>
 
             </div>
+          </div>
 
           </div>
 

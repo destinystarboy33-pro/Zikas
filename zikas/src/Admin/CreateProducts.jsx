@@ -256,19 +256,33 @@ const CreateProduct = () => {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-gray-700">
-                  Subcategory
-                </label>
+                <label className="block text-sm font-semibold text-gray-700 mb-2"> Subcategory   </label>  
+                                
+                   <select
+                      name="subcategory"
+                      value={data.subcategory}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-orange-500 bg-white"                    >
+                        <option value="">Select Subcategory</option>
 
-                <input
-                  type="text"
-                  name="subcategory"
-                  value={data.subcategory}
-                  onChange={handleChange}
-                  placeholder="e.g. T-Shirts, Hoodies, Shoes"
-                  required
-                  className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-orange-500"
-                />
+                      <option value="Shoes">Shoes</option>
+                      <option value="Caps">Caps</option>
+                      <option value="Shirts">Shirts</option>
+                      <option value="Polo">Polo</option>
+                      <option value="Slippers">Slippers</option>
+                      <option value="Shorts">Shorts</option>
+                      <option value="Trousers">Trousers</option>
+                      <option value="Belts">Belts</option>
+                      <option value="Gowns">Gowns</option>
+                      <option value="Skirts">Skirts</option>
+                      <option value="Hoodies">Hoodies</option>
+                      <option value="Jackets">Jackets</option>
+                      <option value="Bags">Bags</option>
+                      <option value="Accessories">Accessories</option>
+                      <option value="Others">Others</option>
+
+                </select>
               </div>
 
             </div>

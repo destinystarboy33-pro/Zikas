@@ -105,6 +105,14 @@ const UpdateProduct = async(req, res) =>{
         }
     )
 
+    if (!updatedProduct) {
+      res.status(400).json({
+        message: "Product not found",
+        status: false,
+       
+    })
+    }
+
    res.status(200).json({
         message: "Product updated Succesfully",
         status: true,
