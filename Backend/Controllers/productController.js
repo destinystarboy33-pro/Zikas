@@ -8,7 +8,7 @@ const CreateProduct = async(req, res) =>{
      const {
        name,
        amount,
-       oldPrice,
+      discountPrice,
        description,
         category,
        subcategory
@@ -37,7 +37,7 @@ const CreateProduct = async(req, res) =>{
     const createdProduct = await product.create({
         image,
         name,
-        oldPrice,
+        discountPrice,
         amount,
         description,
         category,
