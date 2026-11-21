@@ -227,7 +227,7 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import axios from "axios"
 import Reveal from "../Components/Reveal"
-import Loader from "../Components/Loader"
+
 
 const Collections = () => {
   const [products, setproducts] = useState([])
@@ -299,7 +299,12 @@ const Collections = () => {
   }
 
   if (loading) {
-    return <Loader />
+    return (
+        <div className="min-h-screen flex flex-col gap-2 items-center justify-center bg-white">
+        <i className="fa-solid fa-spinner fa-spin text-3xl text-orange-500" />
+        <p>Loading Products</p>
+      </div>
+    )
   }
 
   return (
@@ -412,17 +417,17 @@ const Collections = () => {
           </div>
 
           {/* PRODUCTS GRID */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-9 md:gap-x-7 md:gap-y-12">
+          <div className="md:grid md:grid-cols-2 flex flex-col lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-9 md:gap-x-7 md:gap-y-12">
 
             {filteredProducts.map((product) => (
 
               <div
                 key={product._id}
-                className="group flex flex-col bg-gray-100 py-1 rounded-b-2xl"
+                className="group flex flex-col bg-gray-100 px-2 py-1 rounded-b-2xl"
               >
 
                 {/* PRODUCT IMAGE */}
-                <div className="relative w-full aspect-[3/4] bg-gray-100 overflow-hidden rounded-xl">
+                <div className="relative w-full aspect-3/4 bg-gray-100 overflow-hidden rounded-xl">
 
                   <img
                     src={product.image}
@@ -469,7 +474,7 @@ const Collections = () => {
                     </span>
 
                     {product.discountPrice && (
-                      <span className="text-gray-400 text-lg md:text-xl line-through text-sm">
+                      <span className="text-gray-400 text-lg md:text-xl line-through">
                         ₦{Number(product.discountPrice).toLocaleString()}
                       </span>
                     )}

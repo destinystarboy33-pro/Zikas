@@ -25,7 +25,7 @@ const authenticate = (req, res, next) => {
     console.log(error);
     console.log(error.message);
     return res.status(StatusCodes.UNAUTHORIZED).json({
-      message: "Invalid or expired token",
+      message: "Session expired, please login",
       status: false,
     });
   }

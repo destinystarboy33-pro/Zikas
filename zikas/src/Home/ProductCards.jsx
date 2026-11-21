@@ -37,11 +37,12 @@ useEffect(() =>{
 
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+   return (
+        <div className="min-h-screen flex flex-col gap-2 items-center justify-center bg-white">
         <i className="fa-solid fa-spinner fa-spin text-3xl text-orange-500" />
+        <p>Loading Products</p>
       </div>
-    );
+    )
   }
   return (
     <><Reveal>
@@ -83,7 +84,7 @@ useEffect(() =>{
                     </span>
 
                     {product.discountPrice && (
-                      <span className="text-gray-400 text-lg md:text-xl line-through text-sm">
+                      <span className="text-gray-400 text-lg md:text-xl line-through ">
                         ₦{Number(product.discountPrice).toLocaleString()}
                       </span>
                     )}

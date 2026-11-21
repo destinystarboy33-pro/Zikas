@@ -16,7 +16,7 @@ const EditProduct = () => {
   const [fetching, setFetching] = useState(true);
 
   const [showMessage, setShowMessage] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
@@ -129,6 +129,15 @@ const EditProduct = () => {
       formData.append("subcategory", data.subcategory);
 
       const token = Cookies.get("token");
+      
+        if (!token) {
+            navigate("/login",{
+             state:{
+               message: "Session expired, please login again"
+             }
+            })
+            
+        }
 
       const response = await axios.patch(
         `${API_URL}`,
@@ -137,8 +146,10 @@ const EditProduct = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
+
       );
+
 
       console.log(response.data);
 
@@ -146,8 +157,9 @@ const EditProduct = () => {
 
     } catch (error) {
 
-      console.log(error.response?.data || error.message);
-      setErrorMessage(true);
+      console.log(error.response.data.message);
+      setErrorMessage(error.response.data.message);
+      // navigate("/login")
 
     } finally {
       setLoading(false);
@@ -225,7 +237,10 @@ const EditProduct = () => {
 
             {fetching
               ? "Unable to fetch product details. Please try again."
-              : "Failed to update product. Please try again."}
+              :errorMessage
+              
+              }
+              
 
           </div>
 

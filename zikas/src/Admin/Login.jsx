@@ -1,11 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 
+      
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const location = useLocation()
+
+  console.log(location)
+
+  const message = location.state?.message
 
   const [formData, setFormData] = useState({
     email: "",
@@ -96,7 +103,8 @@ const Login = () => {
 
       {/* RIGHT SIDE */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12">
-
+       
+  
         <div className="w-full max-w-md">
 
           {/* MOBILE LOGO */}
@@ -108,6 +116,12 @@ const Login = () => {
           </Link>
 
           <div className="mb-10">
+
+            
+        {message && (
+          <p className=" text-center text-red-600 mb-5"> {message}</p>
+        )}
+       
 
             <p className="text-orange-500 text-xs font-bold tracking-[4px] uppercase mb-4">
               Admin Access

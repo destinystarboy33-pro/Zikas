@@ -219,7 +219,7 @@ const VerifyPayment = () => {
 
                       <p className="font-black text-xl mt-3">
                         {/* ₦25,000 */}
-                        {amount.toLocaleString()}
+                         ₦{amount.toLocaleString()}
                       </p>
                     </div>
 
@@ -264,7 +264,7 @@ const VerifyPayment = () => {
                       </span>
 
                       <span className="text-orange-600 text-xl md:text-2xl font-black">
-                       {amount.toLocaleString()}
+                       ₦ {amount.toLocaleString()}
                       </span>
                     </div>
 
