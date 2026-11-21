@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 
 const API_URL = "https://zikas.onrender.com/product/create";
@@ -11,6 +12,9 @@ const CreateProduct = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [image, setImage] = useState(null);
+
+   const navigate = useNavigate();
+
 
   const [data, setData] = useState({
     name: "",
@@ -55,6 +59,15 @@ const CreateProduct = () => {
 
       // const token = localStorage.getItem("adminToken");
       const token = Cookies.get("token");
+
+       if (!token) {
+            navigate("/login",{
+             state:{
+               message: "Session expired, please login again"
+             }
+            })
+            
+        }
 
       const response = await axios.post(
         API_URL,
