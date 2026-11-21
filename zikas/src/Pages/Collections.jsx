@@ -421,6 +421,10 @@ const Collections = () => {
 
             {filteredProducts.map((product) => (
 
+         <NavLink
+                      to={`/productdetails/${product._id}`}
+                      // className="text-orange-500 text-xs md:text-sm font-bold hover:text-black transition-colors whitespace-nowrap"
+                    >
               <div
                 key={product._id}
                 className="group flex flex-col bg-gray-100 px-2 py-1 rounded-b-2xl"
@@ -481,18 +485,15 @@ const Collections = () => {
 
               </div>
 
-                    <NavLink
-                      to={`/productdetails/${product._id}`}
-                      className="text-orange-500 text-xs md:text-sm font-bold hover:text-black transition-colors whitespace-nowrap"
-                    >
-                      Shop Now →
-                    </NavLink>
+                    <p   className="text-orange-500 text-xs md:text-sm font-bold hover:text-black transition-colors whitespace-nowrap">  Shop Now →</p>
+                    
 
                   </div>
 
                 </div>
 
               </div>
+            </NavLink>
 
             ))}
 
